@@ -3,7 +3,9 @@ set(CMAKE_CONSOLE_APP_TARGET_NAME "cmake-console-app")
 include(third_party)
 include(compiler_warnings)
 
-add_executable(${CMAKE_CONSOLE_APP_TARGET_NAME} main.cpp)
+file(GLOB_RECURSE CMAKE_CONSOLE_APP_SOURCES "./*.cpp")
+
+add_executable(${CMAKE_CONSOLE_APP_TARGET_NAME} ${CMAKE_CONSOLE_APP_SOURCES})
 
 target_include_directories(${CMAKE_CONSOLE_APP_TARGET_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
